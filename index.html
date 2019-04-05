@@ -32,7 +32,7 @@
 		
 		.flip-box {
 		  background-color: transparent;
-		  width: 75%;
+		  min-width: 75%;
 		  height: 750px;
 		  perspective: 1000px;
 		  margin: auto;
@@ -84,10 +84,30 @@
 		  <div class="flip-box-inner">
 			<div class="flip-box-front">
 			  <img src="mandala.jpg"></img>
-			  <h1>Tuba & Erik</h1>			  
+			  <h1>Tuba & Erik</h1>
+			  <h4 id="timer"></h4>
+
+			<script>
+			var countDownDate = new Date("Apr 21, 2019 04:00:00").getTime();
+			var x = setInterval(function() {
+			  var now = new Date().getTime();
+			  var distance = countDownDate - now;
+			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			  document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+			  + minutes + "m " + seconds + "s ";
+			  if (distance < 0) {
+			    clearInterval(x);
+			    document.getElementById("timer").innerHTML = "Congratulations to the newly married couple!";
+			  }
+			}, 1000);
+			</script>
+			  
 			</div>
 			<div class="flip-box-back">
-			  <h3>To be continued...</h3>
+			  <h3>cutt.ly/Rizviregistry</h3>
 			</div>
 		  </div>
 		</div>
